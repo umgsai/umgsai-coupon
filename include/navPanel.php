@@ -34,9 +34,11 @@
             <li :class="{'layui-this': type == '家居', '': type != '家居'}"><a href="javascript:void(0)" type="家具">家具</a></li>
             <li :class="{'layui-this': type == '礼品', '': type != '礼品'}"><a href="javascript:void(0)" type="礼品">礼品</a></li>
             <li :class="{'layui-this': type == '钟表', '': type != '钟表'}"><a href="javascript:void(0)" type="钟表">钟表</a></li>
+<!--
             <li>
                 <span class="fly-search"><i class="layui-icon"></i></span>
             </li>
+-->
             <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li>
 
             <!-- 用户登入后显示

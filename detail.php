@@ -220,8 +220,6 @@
                 app._data.deleteLink = data.deleteLink;
                 // $("#content").html(data.content);
                 $("title").text(data.title);
-
-
                 setTimeout(function () {
                     layui.$("pre").tweetify();
                 }, 200);

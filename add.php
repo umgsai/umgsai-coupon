@@ -13,7 +13,7 @@ header("content-type:text/html;charset=utf-8");
 <html>
 <head>
     <meta charset="utf-8">
-    <title>发表问题 编辑问题 公用</title>
+    <title>发布优惠券</title>
     <?php include 'include/head.php' ?>
 </head>
 <body>
