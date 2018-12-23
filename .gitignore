@@ -1,0 +1,8 @@
+.idea
+*.iml
+target
+*.log
+deploy/db/config/
+dalgen/velocity.log.1
+app/test/velocity.log.1
+.DS_Store
