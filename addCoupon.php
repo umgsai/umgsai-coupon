@@ -14,7 +14,7 @@ if ("POST" != $REQUEST_METHOD) {
 }
 //echo $_SESSION['admin'];
 if (!isset($_SESSION['admin'])) {
-    die("error");
+    die("error! please login as admin");
 }
 $type = $_POST['type'];
 $site = $_POST['site'];
@@ -30,7 +30,7 @@ checkParam($content);
 require_once("include/db.php");
 
 
-$sql = "INSERT INTO umgsai_coupon (site, type, title, content, create_time, update_time) VALUES ('" . $site . "',' " . $type . "', '" . $title . "','" . $content . "', now(), now())";
+$sql = "INSERT INTO umgsai_coupon (site, type, title, content, create_time, update_time) VALUES ('" . $site . "','" . $type . "', '" . $title . "','" . $content . "', now(), now())";
 
 //die("");
 //echo $sql;

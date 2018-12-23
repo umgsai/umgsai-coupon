@@ -9,13 +9,12 @@ header("content-type:text/html;charset=utf-8");
 ?>
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>发表问题 编辑问题 公用</title>
-    <?php include 'include/head.php'?>
+    <?php include 'include/head.php' ?>
 </head>
 <body>
 <?php include 'include/header.php'; ?>
@@ -80,7 +79,8 @@ header("content-type:text/html;charset=utf-8");
                                 <div class="layui-col-md12">
                                     <label for="L_title" class="layui-form-label">标题</label>
                                     <div class="layui-input-block">
-                                        <input type="text" id="L_title" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                                        <input type="text" id="L_title" name="title" required lay-verify="required" v-model="title"
+                                               autocomplete="off" class="layui-input">
                                         <!-- <input type="hidden" name="id" value="{{d.edit.id}}"> -->
                                     </div>
                                 </div>
@@ -116,35 +116,38 @@ header("content-type:text/html;charset=utf-8");
                                 -->
                             <div class="layui-form-item layui-form-text">
                                 <div class="layui-input-block">
-                                    <textarea id="L_content" name="content" required lay-verify="required" placeholder="详细描述" class="layui-textarea fly-editor" style="height: 260px;"></textarea>
+                                    <textarea id="L_content" name="content" required lay-verify="required"
+                                              onkeyup="edit()"
+                                              placeholder="详细描述" class="layui-textarea fly-editor"
+                                              style="height: 260px;"></textarea>
                                 </div>
                             </div>
-<!--
-                            <div class="layui-form-item">
-                                <div class="layui-inline">
-                                    <label class="layui-form-label">悬赏飞吻</label>
-                                    <div class="layui-input-inline" style="width: 190px;">
-                                        <select name="experience">
-                                            <option value="20">20</option>
-                                            <option value="30">30</option>
-                                            <option value="50">50</option>
-                                            <option value="60">60</option>
-                                            <option value="80">80</option>
-                                        </select>
-                                    </div>
-                                    <div class="layui-form-mid layui-word-aux">发表后无法更改飞吻</div>
-                                </div>
-                            </div>
-                            <div class="layui-form-item">
-                                <label for="L_vercode" class="layui-form-label">人类验证</label>
-                                <div class="layui-input-inline">
-                                    <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
-                                </div>
-                                <div class="layui-form-mid">
-                                    <span style="color: #c00;">1+1=?</span>
-                                </div>
-                            </div>
--->
+                            <!--
+                                                        <div class="layui-form-item">
+                                                            <div class="layui-inline">
+                                                                <label class="layui-form-label">悬赏飞吻</label>
+                                                                <div class="layui-input-inline" style="width: 190px;">
+                                                                    <select name="experience">
+                                                                        <option value="20">20</option>
+                                                                        <option value="30">30</option>
+                                                                        <option value="50">50</option>
+                                                                        <option value="60">60</option>
+                                                                        <option value="80">80</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="layui-form-mid layui-word-aux">发表后无法更改飞吻</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <label for="L_vercode" class="layui-form-label">人类验证</label>
+                                                            <div class="layui-input-inline">
+                                                                <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
+                                                            </div>
+                                                            <div class="layui-form-mid">
+                                                                <span style="color: #c00;">1+1=?</span>
+                                                            </div>
+                                                        </div>
+                            -->
                             <div class="layui-form-item">
                                 <button class="layui-btn" lay-filter="*" lay-submit>立即发布</button>
                             </div>
@@ -156,18 +159,22 @@ header("content-type:text/html;charset=utf-8");
     </div>
 </div>
 <?php include 'include/footer.php'; ?>
+
+<!--<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>-->
+
+
 <script>
     layui.cache.page = 'jie';
     layui.cache.user = {
         username: '游客'
-        ,uid: -1
-        ,avatar: 'static/images/avatar/00.jpg'
-        ,experience: 83
-        ,sex: '男'
+        , uid: -1
+        , avatar: 'static/images/avatar/00.jpg'
+        , experience: 83
+        , sex: '男'
     };
     layui.config({
         version: "3.0.0"
-        ,base: 'static/mods/'
+        , base: 'static/mods/'
     }).extend({
         fly: 'index'
     }).use('fly');
@@ -177,7 +184,21 @@ header("content-type:text/html;charset=utf-8");
         data: {
             message: 'Hello Vue!',
             type: "水果生鲜",
-            site: "京东"
+            site: "京东",
+            title: ""
+        }
+    });
+
+    function edit(){
+        if (layui.$("textarea").val() && layui.$("textarea").val().length > 1){
+            app._data.title = layui.$("textarea").val().split("\n")[0];
+        }
+    }
+
+    layui.use(['laypage', 'layer'], function () {
+
+        var edit = function () {
+
         }
     });
 </script>
