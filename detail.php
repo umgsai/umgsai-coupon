@@ -57,6 +57,12 @@
                             删除
                             </span>
                         </a>
+
+                        <a href="javascript:void(0)" id="btn-copy" style="margin-left: 50px">
+                            <span class="layui-badge">
+                            点击复制
+                            </span>
+                        </a>
                     </span>
                 </div>
                 <!--
@@ -120,6 +126,7 @@
 
 <!--<script src="static/layui/lay/modules/jquery.js"></script>-->
 <script src="static/js/vue.min.js"></script>
+<script type="text/javascript" src="static/js/clipboard.min.js"></script>
 
 <script>
 
@@ -242,6 +249,18 @@
         if (r != null) return unescape(r[2]);
         return null;
     }
+
+    var clipboard = new Clipboard('#btn-copy', {
+        text: function() {
+            var text = layui.$("pre").text();
+            if (text == "") {
+                layui.layer.msg("没有可以复制的内容！");
+            } else {
+                layui.layer.msg("已复制到剪切板！");
+            }
+            return text;
+        }
+    });
 
 </script>
 
