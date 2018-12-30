@@ -87,6 +87,7 @@
                 -->
                 <div class="detail-body photos" id="content">
                     <pre>{{content}}</pre>
+                    <img v-for="imgUrl in imgUrls" :src="imgUrl">
                 </div>
             </div>
 
@@ -139,6 +140,7 @@
             content: "",
             visits: 0,
             stars: 0,
+            imgUrls: [],
             deleteLink: '',
             hotCouponList: []
         },
@@ -217,6 +219,7 @@
                 app._data.visits = data.visits;
                 app._data.stars = data.stars;
                 app._data.content = data.content;
+                app._data.imgUrls = eval(data.img_urls);
                 app._data.deleteLink = data.deleteLink;
                 // $("#content").html(data.content);
                 $("title").text(data.title);
