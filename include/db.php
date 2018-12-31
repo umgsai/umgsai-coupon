@@ -11,7 +11,7 @@ $username = "root";
 $password = "123456";
 $dbname = "umgsai";
 
-$mysqli = new mysqli('127.0.0.1', 'root', '123456', 'umgsai', '3306');
+$mysqli = new mysqli('127.0.0.1', 'root', '', 'umgsai', '3306');
 
 // 创建连接
 $conn = new mysqli($servername, $username, $password, $dbname);

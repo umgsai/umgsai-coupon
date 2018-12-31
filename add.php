@@ -81,7 +81,14 @@ header("content-type:text/html;charset=utf-8");
                                     <div class="layui-input-block">
                                         <input type="text" id="L_title" name="title" required lay-verify="required" v-model="title"
                                                autocomplete="off" class="layui-input">
-                                        <!-- <input type="hidden" name="id" value="{{d.edit.id}}"> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-row layui-col-space15 layui-form-item">
+                                <div class="layui-col-md12">
+                                    <label for="L_title" class="layui-form-label">图片链接</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="imgUrls" v-model="imgUrls" class="layui-input">
                                     </div>
                                 </div>
                             </div>

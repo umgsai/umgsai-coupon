@@ -26,6 +26,9 @@
         <div class="layui-col-md8 content detail">
             <div class="fly-panel detail-box">
                 <h1>
+                    <img v-if="site == '京东'" src="static/images/jd.png" alt="京东" style="width: 40px; height: 40px; margin: 10px;">
+                    <img v-if="site == '淘宝'" src="static/images/tb.png" alt="淘宝" style="width: 40px; height: 40px; margin: 10px;">
+                    <img v-if="site == '拼多多'" src="static/images/pdd.png" alt="拼多多" style="width: 40px; height: 40px; margin: 10px;">
                     {{title}}
                 </h1>
                 <!--
