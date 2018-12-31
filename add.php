@@ -88,7 +88,7 @@ header("content-type:text/html;charset=utf-8");
                                 <div class="layui-col-md12">
                                     <label for="L_title" class="layui-form-label">图片链接</label>
                                     <div class="layui-input-block">
-                                        <input type="text" name="imgUrls" v-model="imgUrls" class="layui-input">
+                                        <input type="text" name="imgUrls" v-model="imgUrls" class="layui-input" placeholder="英文逗号分隔">
                                     </div>
                                 </div>
                             </div>
@@ -192,7 +192,8 @@ header("content-type:text/html;charset=utf-8");
             message: 'Hello Vue!',
             type: "水果生鲜",
             site: "京东",
-            title: ""
+            title: "",
+            imgUrls: ""
         }
     });
 

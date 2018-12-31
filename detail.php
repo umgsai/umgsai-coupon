@@ -90,6 +90,7 @@
                 -->
                 <div class="detail-body photos" id="content">
                     <pre>{{content}}</pre>
+                    <img v-for="imgUrl in imgUrls" :src="imgUrl">
                 </div>
             </div>
 
@@ -128,8 +129,9 @@
 
 
 <!--<script src="static/layui/lay/modules/jquery.js"></script>-->
-<script src="static/js/vue.min.js"></script>
-<script type="text/javascript" src="static/js/clipboard.min.js"></script>
+<!--<script src="static/js/vue.min.js"></script>-->
+<!--<script type="text/javascript" src="static/js/clipboard.min.js"></script>-->
+<script type="text/javascript" src="//cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js"></script>
 
 <script>
 
@@ -142,6 +144,7 @@
             content: "",
             visits: 0,
             stars: 0,
+            imgUrls: [],
             deleteLink: '',
             hotCouponList: []
         },
@@ -220,6 +223,7 @@
                 app._data.visits = data.visits;
                 app._data.stars = data.stars;
                 app._data.content = data.content;
+                app._data.imgUrls = eval(data.img_urls);
                 app._data.deleteLink = data.deleteLink;
                 // $("#content").html(data.content);
                 $("title").text(data.title);
@@ -242,6 +246,17 @@
         });
 
 
+        var clipboard = new Clipboard('#btn-copy', {
+            text: function() {
+                var text = layui.$("pre").text();
+                if (text == "") {
+                    layui.layer.msg("没有可以复制的内容！");
+                } else {
+                    layui.layer.msg("已复制到剪切板！");
+                }
+                return text;
+            }
+        });
     });
 
     function getQueryString(name) {
@@ -251,17 +266,6 @@
         return null;
     }
 
-    var clipboard = new Clipboard('#btn-copy', {
-        text: function() {
-            var text = layui.$("pre").text();
-            if (text == "") {
-                layui.layer.msg("没有可以复制的内容！");
-            } else {
-                layui.layer.msg("已复制到剪切板！");
-            }
-            return text;
-        }
-    });
 
 </script>
 

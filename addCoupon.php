@@ -20,6 +20,8 @@ $type = $_POST['type'];
 $site = $_POST['site'];
 $title = $_POST['title'];
 $content = $_POST['content'];
+$imgUrls = $_POST['imgUrls'];
+$imgUrlsArray = explode(',', $imgUrls);
 
 require_once("include/checkSql.php");
 checkParam($type);
@@ -30,7 +32,7 @@ checkParam($content);
 require_once("include/db.php");
 
 
-$sql = "INSERT INTO umgsai_coupon (site, type, title, content, create_time, update_time) VALUES ('" . $site . "','" . $type . "', '" . $title . "','" . $content . "', now(), now())";
+$sql = "INSERT INTO umgsai_coupon (site, type, title, content, img_urls, create_time, update_time) VALUES ('" . $site . "','" . $type . "', '" . $title . "','" . $content . "' , '".json_encode($imgUrlsArray)."' , now(), now())";
 
 //die("");
 //echo $sql;

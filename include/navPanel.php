@@ -6,7 +6,7 @@
  * Time: 20:54
  */
 ?>
-<div class="fly-panel fly-column" style="min-height: 100px">
+<div class="fly-panel fly-column layui-hide-xs" style="min-height: 100px">
     <div class="layui-container">
         <ul class="layui-clear" id="nav-type">
             <li :class="{'layui-this': type == 'all' || !type, '': type != 'all' || type}"><a href="javascript:void(0)" type="all">首页</a></li>
