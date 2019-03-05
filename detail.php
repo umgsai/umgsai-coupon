@@ -31,14 +31,6 @@
                     <img v-if="site == '拼多多'" src="static/images/pdd.png" alt="拼多多" style="width: 40px; height: 40px; margin: 10px;">
                     {{title}}
                 </h1>
-                <!--
-                                <div class="fly-detail-info">
-                                    <span class="fly-list-nums">
-                                        <i class="iconfont" title="人气">&#xe60b;</i>
-                                        {{visits}}
-                                    </span>
-                                </div>
-                -->
                 <div class="fly-detail-info">
                     <span class="layui-badge layui-bg-green fly-detail-column">
                         {{site}}
