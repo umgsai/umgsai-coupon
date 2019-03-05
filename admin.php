@@ -11,8 +11,8 @@ if (!session_id()) {
 
 if (isset($_POST['password'])) {
     $password = $_POST['password'];
-    if ($password == "445013022") {
-        $_SESSION['admin'] = "445013022";
+    if ($password == "xxx") {
+        $_SESSION['admin'] = "xxx";
         header("location:index.php");
     }
 } else {
